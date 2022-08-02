@@ -5,20 +5,16 @@
     background-color: palevioletred;
 }
 
-.grid-16 {
+.grid {
     display: grid;
     grid-template-columns: repeat(16, auto);
-    width: 600px;
-    height: 600px;
 }
 
-.grid-box, .grid-box-new {
+.grid-box {
     background-color: white;
     border: 1px solid black;
 }
 
 .hover {
-    background-color: powderblue;
+    background-color: lightblue;
 }
-
-/* .grid-20 */
