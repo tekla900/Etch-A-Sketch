@@ -2,6 +2,19 @@ const gridContainer = document.querySelector('.grid');
 const targets = document.querySelectorAll(".grid-box");
 const getCanvasSize = document.querySelector('.size');
 const resetBtn = document.querySelector('.reset');
+const newColor = document.querySelector('.color-picker');
+
+// let colorArray = [];
+// const targets = document.querySelectorAll(".grid-box");
+
+// newColor.addEventListener('click', () => {
+//     let value = newColor.value;
+//     console.log('in?');
+//     console.log(value);
+//     // colorArray.push(value);
+//     hover(targets, value);
+// }); 
+
 
 function remove() {
     let child = gridContainer.lastElementChild;
@@ -23,24 +36,28 @@ function draw(size=16) {
 
     const targets = document.querySelectorAll(".grid-box");
 
+    // newColor.addEventListener('click', () => {
+    //     let value = newColor.value;
+    //     // colorArray.push(value);
+    //     hover(targets, value);
+    // }); 
     hover(targets);
-
 }
 
 getCanvasSize.addEventListener('click', () => {
-        let userInput = prompt('enter size'); 
-        if (userInput > 100) {
-            console.error('Enter smaller number');
-        } else {
-            draw(userInput);
-        } 
+    let userInput = prompt('enter size'); 
+    if (userInput > 100) {
+        console.error('Enter smaller number');
+    } else {
+        draw(userInput);
+    } 
 });
 
 
-function hover(targets) {
+function hover(targets, color='black') {
     targets.forEach(element => {
         element.addEventListener('mouseover', () => {
-            element.classList.add('hover');
+            element.setAttribute("style", `background-color: ${color};`);
         })
     })
 }
@@ -48,7 +65,7 @@ function hover(targets) {
 function reset() {
     const targets = document.querySelectorAll(".grid-box");
     targets.forEach(element => {
-        element.classList.remove('hover');
+        element.setAttribute("style", `background-color: white;`);
     })
 }
 
@@ -57,3 +74,10 @@ resetBtn.addEventListener('click', reset);
 
 draw();
 
+// const hovered = document.getElementsByClassName('.hover');
+
+
+// console.log(hovered);
+
+
+// console.log(colorArray);
