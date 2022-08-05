@@ -1,47 +1,59 @@
 const gridContainer = document.querySelector('.grid');
+const targets = document.querySelectorAll(".grid-box");
+const getCanvasSize = document.querySelector('.size');
+const resetBtn = document.querySelector('.reset');
 
-for (let each = 0;  each < 256; each++) {
-    const div = document.createElement('div');
-    // div.textContent = `${each+1}`;
-    div.classList.add('grid-box');
-    gridContainer.append(div);
-}
-
-// მაშინ შევცვალოთ მიდგომა, ანუ შემოვიღოთ ფუნქცია - ხატვა, 
-// სადაც გაჩმების პარამეტრი იქნება 16. 
-// ამის შემდეგ აღარ მოგვიწევს 16-ზე ცალკე 
-// და სხვა რიცხვებზე ცალკე  ვაკეთოთ ლუპები
-
-const canvasSize = document.querySelector('.size');
-canvasSize.addEventListener('click', () => {
-    let userInput = prompt('enter size');
-    console.log(userInput);
+function remove() {
     let child = gridContainer.lastElementChild;
     while (child) {
         gridContainer.removeChild(child);
         child = gridContainer.lastElementChild;
     }
+}
 
-    gridContainer.setAttribute("style", `grid-template-columns: repeat(${userInput}, auto);`);
+function draw(size=16) {
+    remove();
 
-    for (let each = 0;  each < userInput**2; each++) {
-        console.log(each);
-        const newDiv = document.createElement('div');
-        // newDiv.textContent = `${each+1}`;
-        newDiv.classList.add('grid-box');
-        console.log(newDiv.className);
-        gridContainer.append(newDiv);
+    for (let each = 0;  each < size**2; each++) {
+        const div = document.createElement('div');
+        div.classList.add('grid-box');
+        gridContainer.append(div);
     }
+    gridContainer.setAttribute("style", `grid-template-columns: repeat(${size}, auto);`);
+
+    const targets = document.querySelectorAll(".grid-box");
+
+    hover(targets);
+
+}
+
+getCanvasSize.addEventListener('click', () => {
+        let userInput = prompt('enter size'); 
+        if (userInput > 100) {
+            console.error('Enter smaller number');
+        } else {
+            draw(userInput);
+        } 
 });
 
 
-const targets = document.querySelectorAll(".grid-box");
-console.log(targets.length);
-targets.forEach(element => {
-    element.addEventListener('mouseover', () => {
-        element.classList.add('hover');
-        console.log('rato agar shemodis');
+function hover(targets) {
+    targets.forEach(element => {
+        element.addEventListener('mouseover', () => {
+            element.classList.add('hover');
+        })
     })
+}
 
-})
+function reset() {
+    const targets = document.querySelectorAll(".grid-box");
+    targets.forEach(element => {
+        element.classList.remove('hover');
+    })
+}
+
+resetBtn.addEventListener('click', reset);
+
+
+draw();
 

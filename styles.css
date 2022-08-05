@@ -14,9 +14,10 @@
 
 .grid-box {
     background-color: white;
-    border: 1px solid black;
+    /* border-radius: 2px; */
+    /* border: 1px solid black; */
 }
 
 .hover {
-    background-color: lightblue;
+    background-color: black;
 }
