@@ -1,10 +1,8 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Mouse+Memoirs&family=Roboto:ital@0;1&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Mouse+Memoirs&family=Roboto:ital,wght@0,300;0,400;1,400&display=swap');
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* background-color: palevioletred; */
     text-align: center;
     font-family: 'Roboto',
 }
@@ -15,22 +13,12 @@
     width: 70vw;
     height: 70vh;
     margin: 3.5% auto;
-    /* padding-top: 10%; */
-    /* padding: 10% 0;÷ */
-    /* border-radius: 50px; */
 }
 
 .grid-box {
     background-color: white;
     border: 0.5px dashed black;
-    /* border-radius: 2px; */
-    /* border: 1px solid black; */
 }
-
-/* .hover {
-    background-color: rebeccapurple;
-} */
-
 
 input[type='color'] {
     -webkit-appearance: none;
@@ -64,7 +52,6 @@ button:hover {
     border: 2px solid black;
     background-color: white;
     color: black;
-    /* transform: scale(1.0xs4); */
 }
 
 h1 {

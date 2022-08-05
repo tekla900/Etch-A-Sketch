@@ -4,18 +4,6 @@ const getCanvasSize = document.querySelector('.size');
 const resetBtn = document.querySelector('.reset');
 const newColor = document.querySelector('.color-picker');
 
-// let colorArray = [];
-// const targets = document.querySelectorAll(".grid-box");
-
-// newColor.addEventListener('click', () => {
-//     let value = newColor.value;
-//     console.log('in?');
-//     console.log(value);
-//     // colorArray.push(value);
-//     hover(targets, value);
-// }); 
-
-
 function remove() {
     let child = gridContainer.lastElementChild;
     while (child) {
@@ -36,11 +24,11 @@ function draw(size=16) {
 
     const targets = document.querySelectorAll(".grid-box");
 
-    // newColor.addEventListener('click', () => {
-    //     let value = newColor.value;
-    //     // colorArray.push(value);
-    //     hover(targets, value);
-    // }); 
+    newColor.addEventListener('input', () => {
+        let value = newColor.value;
+        hover(targets, value);
+    }); 
+    
     hover(targets);
 }
 
@@ -73,11 +61,3 @@ resetBtn.addEventListener('click', reset);
 
 
 draw();
-
-// const hovered = document.getElementsByClassName('.hover');
-
-
-// console.log(hovered);
-
-
-// console.log(colorArray);
