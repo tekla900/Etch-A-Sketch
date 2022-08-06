@@ -72,6 +72,14 @@ function reset() {
     })
 }
 
+function eraser(targets) {
+    targets.forEach(element => {
+        element.addEventListener('mouseover', () => {
+            element.setAttribute("style", `background-color: white;`);
+        })
+    })
+}
+
 resetBtn.addEventListener('click', reset);
 
 
