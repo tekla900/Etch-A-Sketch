@@ -3,9 +3,8 @@ const targets = document.querySelectorAll(".grid-box");
 const getCanvasSize = document.querySelector('.size');
 const resetBtn = document.querySelector('.reset');
 const newColor = document.querySelector('.color-picker');
-const randColor = document.querySelector('.random-color');
 
-function reset() {
+function remove() {
     let child = gridContainer.lastElementChild;
     while (child) {
         gridContainer.removeChild(child);
@@ -14,7 +13,7 @@ function reset() {
 }
 
 function draw(size=16) {
-    reset();
+    remove();
 
     for (let each = 0;  each < size**2; each++) {
         const div = document.createElement('div');
@@ -25,15 +24,8 @@ function draw(size=16) {
 
     const targets = document.querySelectorAll(".grid-box");
 
-    // randColor.addEventListener('click', () => {
-    //     let value = '#' + Math.floor(Math.random()*16777215).toString(16);
-    //     console.log(typeof value);
-    //     hover(targets, value);
-    // })
-
     newColor.addEventListener('input', () => {
         let value = newColor.value;
-        console.log(value);
         hover(targets, value);
     }); 
     
