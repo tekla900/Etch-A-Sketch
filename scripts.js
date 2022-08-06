@@ -3,8 +3,10 @@ const targets = document.querySelectorAll(".grid-box");
 const getCanvasSize = document.querySelector('.size');
 const resetBtn = document.querySelector('.reset');
 const newColor = document.querySelector('.color-picker');
+const randBtn = document.querySelector('.random-color');
 
-function remove() {
+
+function removePrevGrid() {
     let child = gridContainer.lastElementChild;
     while (child) {
         gridContainer.removeChild(child);
@@ -12,8 +14,12 @@ function remove() {
     }
 }
 
-function draw(size=16) {
-    remove();
+function randColor() {
+    return '#' + Math.floor(Math.random()*16777215).toString(16);
+}
+
+function drawGrid(size=16) {
+    removePrevGrid();
 
     for (let each = 0;  each < size**2; each++) {
         const div = document.createElement('div');
@@ -22,8 +28,17 @@ function draw(size=16) {
     }
     gridContainer.setAttribute("style", `grid-template-columns: repeat(${size}, auto);`);
 
-    const targets = document.querySelectorAll(".grid-box");
+    color();
+}
 
+function color() {
+    const targets = document.querySelectorAll(".grid-box");
+    
+    randBtn.addEventListener('click', () => {
+        let value = '#' + Math.floor(Math.random()*16777215).toString(16);
+        console.log(typeof value);
+        hover(targets, value);
+    })
     newColor.addEventListener('input', () => {
         let value = newColor.value;
         hover(targets, value);
@@ -37,7 +52,7 @@ getCanvasSize.addEventListener('click', () => {
     if (userInput > 100) {
         console.error('Enter smaller number');
     } else {
-        draw(userInput);
+        drawGrid(userInput);
     } 
 });
 
@@ -60,4 +75,13 @@ function reset() {
 resetBtn.addEventListener('click', reset);
 
 
-draw();
+drawGrid();
+
+randBtn.addEventListener('click', () => {
+    let cell = gridContainer.children;
+    for (let i = 0; i < 16**2; i++) {
+        cell[i].addEventListener('mouseover', function(event){
+            event.target.style.backgroundColor = randColor();
+        })
+    }
+})

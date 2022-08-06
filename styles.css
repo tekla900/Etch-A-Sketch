@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Mouse+Memoirs&family=Roboto:ital,wght@0,300;0,400;1,400&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -12,8 +13,6 @@
     grid-template-columns: repeat(16, auto);
     width: 700px;
     height: 700px;
-    /* width: 70vw; */
-    /* height: 70vh; */
     margin: 3.5% auto;
     padding: 2%;
     border-radius: 20px;
@@ -45,7 +44,6 @@ input[type='color']::-webkit-color-swatch {
 }
 
 button {
-    padding: 20px;
     border-radius: 10px;
     width: 80px;
     font-weight: bold;
@@ -63,7 +61,7 @@ button:hover {
 h1 {
     font-size: 48px;
     font-family: 'Mouse Memoirs', sans-serif;
-    letter-spacing: 7.5px;
+    letter-spacing: 20.5px;
     margin-top: 3.5%;
 }
 
