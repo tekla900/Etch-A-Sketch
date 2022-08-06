@@ -10,13 +10,19 @@
 .grid {
     display: grid;
     grid-template-columns: repeat(16, auto);
-    width: 70vw;
-    height: 70vh;
+    width: 700px;
+    height: 700px;
+    /* width: 70vw; */
+    /* height: 70vh; */
     margin: 3.5% auto;
+    padding: 2%;
+    border-radius: 20px;
+    border: 1px solid black;
 }
 
 .grid-box {
     background-color: white;
+    margin: 2px;
     border: 0.5px dashed black;
 }
 
@@ -63,6 +69,8 @@ h1 {
 
 .options {
     display: flex;
+    width: 700px;
     justify-content: space-around;
+    margin: 40px auto;
 }
 
