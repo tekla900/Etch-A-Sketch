@@ -72,13 +72,18 @@ function reset() {
     })
 }
 
-function eraser(targets) {
+function eraser() {
+    const targets = document.querySelectorAll(".grid-box");
+
     targets.forEach(element => {
         element.addEventListener('mouseover', () => {
             element.setAttribute("style", `background-color: white;`);
         })
     })
 }
+
+const eraserBtn = document.querySelector('.eraser');
+eraserBtn.addEventListener('click', eraser);
 
 resetBtn.addEventListener('click', reset);
 
