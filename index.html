@@ -11,9 +11,13 @@
     <h1>Etch-A-Sketch</h1>
 
     <div class="options">
-        <button class="size">SIZE</button>   
+        
         <button class="random-color">RANDOM COLOR</button>
         <input type="color" class="color-picker" />
+        <div class="container">
+            <p class="sp">16 x 16</p>
+            <input class="size" type="range" min="1" max="100">   
+        </div>
         <button class="reset">RESET</button>
         <button class="eraser">ERASE</button>
     </div>
@@ -22,6 +26,11 @@
     <div class="grid">
 
     </div>
+
+    <footer>
+        <h3>Copyright © 2022 Tekla <a href=https://github.com/tekla900><img id="gh-logo" src="githublogo.png" alt="github logo"/></a></h3>
+        <p>This project is part of <a href="www.theodinproject.com">The Odin Project Curriculum</a></p>
+    </footer>
 
     <script src="scripts.js"></script>
 </body>

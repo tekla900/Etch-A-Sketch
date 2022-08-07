@@ -1,10 +1,10 @@
 const gridContainer = document.querySelector('.grid');
 const targets = document.querySelectorAll(".grid-box");
-const getCanvasSize = document.querySelector('.size');
+const canvasSize = document.querySelector('.size');
 const resetBtn = document.querySelector('.reset');
 const newColor = document.querySelector('.color-picker');
 const randBtn = document.querySelector('.random-color');
-
+const eraserBtn = document.querySelector('.eraser');
 
 function removePrevGrid() {
     let child = gridContainer.lastElementChild;
@@ -31,14 +31,16 @@ function drawGrid(size=16) {
     color();
 }
 
+canvasSize.addEventListener('input', () => {
+    let userInput = canvasSize.value;
+    document.querySelector('.sp').textContent = `${userInput} x ${userInput}` ;
+    console.log(userInput);
+    drawGrid(userInput);
+});
+
+
 function color() {
     const targets = document.querySelectorAll(".grid-box");
-    
-    randBtn.addEventListener('click', () => {
-        let value = '#' + Math.floor(Math.random()*16777215).toString(16);
-        console.log(typeof value);
-        hover(targets, value);
-    })
     newColor.addEventListener('input', () => {
         let value = newColor.value;
         hover(targets, value);
@@ -46,16 +48,6 @@ function color() {
     
     hover(targets);
 }
-
-getCanvasSize.addEventListener('click', () => {
-    let userInput = prompt('enter size'); 
-    if (userInput > 100) {
-        console.error('Enter smaller number');
-    } else {
-        drawGrid(userInput);
-    } 
-});
-
 
 function hover(targets, color='black') {
     targets.forEach(element => {
@@ -82,19 +74,19 @@ function eraser() {
     })
 }
 
-const eraserBtn = document.querySelector('.eraser');
 eraserBtn.addEventListener('click', eraser);
 
 resetBtn.addEventListener('click', reset);
 
-
-drawGrid();
-
 randBtn.addEventListener('click', () => {
+    let size = canvasSize.value;
     let cell = gridContainer.children;
-    for (let i = 0; i < 16**2; i++) {
+    for (let i = 0; i < size**2; i++) {
         cell[i].addEventListener('mouseover', function(event){
             event.target.style.backgroundColor = randColor();
         })
     }
 })
+
+drawGrid();
+
